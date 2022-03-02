@@ -22,6 +22,6 @@ jobs:
         tags: latest, ${{ secrets.run_number }}
       run: |
         docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-        docker build -t cj22011992/html-app:latest -f Dockerfile
+        docker build -t cj22011992/html-app:latest -f Dockerfile .
         docker image
         docker push cj22011992/html-app:latest
