@@ -14,8 +14,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: docker login
       env:
-#        Docker_Hub_Username: xxxxxx
-#        Docker_Hub_Password: xxxxxx
+#        Docker_Hub_Username: xxxxxxx
+#        Docker_Hub_Password: xxxxxxx
         DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
         repository: cj22011992/html-app:latest
