@@ -1,4 +1,4 @@
-name: HTML/PYTHON application
+name: HTML application
 
 on:
   push:
