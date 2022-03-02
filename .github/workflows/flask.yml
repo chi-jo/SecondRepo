@@ -18,9 +18,9 @@ jobs:
 #        Docker_Hub_Password: xxxxxx
         DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-        repository: cj22011992/demo-app:latest
+        repository: cj22011992/html-app:latest
         tags: latest, ${{ secrets.run_number }}
       run: |
         docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-        docker image build -t cj22011992/demo-app:latest .
-        docker push cj22011992/demo-app:latest
+        docker image build -t cj22011992/html-app:latest .
+        docker push cj22011992/html-app:latest
