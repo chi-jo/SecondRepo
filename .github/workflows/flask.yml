@@ -10,18 +10,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-
-    - uses: actions/checkout@v2
-    - name: docker login
-      env:
-#        Docker_Hub_Username: xxxxxxx
-#        Docker_Hub_Password: xxxxxxx
-        DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
-        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-        repository: cj22011992/html-app:latest
-        tags: latest, ${{ secrets.run_number }}
-      run: |
-        docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-        docker build -t cj22011992/html-app:latest -f Dockerfile .
-        docker image
-        docker push cj22011992/html-app:latest
+      - name: check out code
+      - uses: actions/checkout@v2
+      - name: publish to docker hub
+      - uses: docker/build-push-action@v1
+        with:
+          username: ${{secrets.DOCKER_USERNAME}}
+          password: ${{secrets.DOCKER_PASSWORD}}
+          repository: cj22011992/html-app
+          tags: latest
+#     - uses: actions/checkout@v2
+#     - name: docker login
+#       env:
+# #        Docker_Hub_Username: xxxxxxx
+# #        Docker_Hub_Password: xxxxxxx
+#         DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+#         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+#         repository: cj22011992/html-app:latest
+#         tags: latest, ${{ secrets.run_number }}
+#       run: |
+#         docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+#         docker build -t cj22011992/html-app:latest -f Dockerfile .
+#         docker image
+#         docker push cj22011992/html-app:latest
